@@ -74,7 +74,7 @@ public class MySqlCategoryDao extends MySqlDaoBase implements CategoryDao {
              PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
 
             preparedStatement.setString(1, category.getName());
-            preparedStatement.setObject(2, category.getDescription());
+            preparedStatement.setString(2, category.getDescription());
 
             preparedStatement.executeUpdate();
 
@@ -104,7 +104,7 @@ public class MySqlCategoryDao extends MySqlDaoBase implements CategoryDao {
              PreparedStatement preparedStatement = connection.prepareStatement(query))
         {
             preparedStatement.setString(1, category.getName());
-            preparedStatement.setObject(2, category.getDescription());
+            preparedStatement.setString(2, category.getDescription());
             preparedStatement.setInt(3, categoryId); // WHERE clause
 
             preparedStatement.executeUpdate();
